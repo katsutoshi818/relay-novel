@@ -1,0 +1,35 @@
+.main
+  .novel-new
+    = form_for @title do |f|
+      %p.genre-label ジャンルを選択してください
+      .form-check.form-check-inline
+        = f.radio_button :genre_id, "1", class:"form-check-input", id: "inlineCheckbox1"
+        = f.label "恋愛", class: "form-check-label", for: "inlineCheckbox1"
+      .form-check.form-check-inline
+        = f.radio_button :genre_id, "2", class:"form-check-input", id: "inlineCheckbox2"
+        = f.label "ファンタジー", class: "form-check-label", for: "inlineCheckbox2"
+      .form-check.form-check-inline
+        = f.radio_button :genre_id, "3", class:"form-check-input", id: "inlineCheckbox3"
+        = f.label "SF", class: "form-check-label upper", for: "inlineCheckbox3"
+      .form-check.form-check-inline
+        = f.radio_button :genre_id, "4", class:"form-check-input", id: "inlineCheckbox4"
+        = f.label "ホラー", class: "form-check-label", for: "inlineCheckbox4"
+      .form-check.form-check-inline
+        = f.radio_button :genre_id, "5", class:"form-check-input", id: "inlineCheckbox5"
+        = f.label "アクション", class: "form-check-label", for: "inlineCheckbox5"
+      .form-check.form-check-inline
+        = f.radio_button :genre_id, "6", class:"form-check-input", id: "inlineCheckbox1"
+        = f.label "その他", class: "form-check-label", for: "inlineCheckbox1"
+      %p.title-label タイトルを入力してください
+      .col
+        = f.text_field :name, class:"form-control", placeholder:"タイトル"
+      = f.submit class: "btn btn-primary btn-sm", value:"リレーを始める"
+    - if flash[:notice]
+      %p #{flash[:notice]}
+  .genre-index
+    = link_to "恋愛", genre_path(id: 1)
+    = link_to "ファンタジー", genre_path(id: 2)
+    = link_to "SF", genre_path(id: 3)
+    = link_to "ホラー", genre_path(id: 4)
+    = link_to "アクション", genre_path(id: 5)
+    = link_to "その他", genre_path(id: 6)

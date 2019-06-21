@@ -1,0 +1,11 @@
+.sentence-main
+  .genre-title
+    %p.genre-title__genre 
+      ジャンル: #{@title.genre.name}
+    %p.genre-title__title 
+      タイトル: #{@title.name}
+  = form_for @sentence, :url => {:action => :create} do |f|
+    .form-group
+      = f.label :sentence, "最初の文章を２０字以内で入力してください"
+      = f.text_area :sentence, class:"form-controll", cols:"20", maxlength:"20"
+    = f.submit class: "btn btn-primary btn-sm", value:"保存して次の人に渡す"

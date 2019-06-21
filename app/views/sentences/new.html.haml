@@ -1,0 +1,18 @@
+.sentence-main
+  = link_to "終了する", title_path(@title)
+  .genre-title
+    %p.genre-title__genre 
+      ジャンル: #{@title.genre.name}
+    %p.genre-title__title 
+      タイトル: #{@title.name}
+  .before-sentence
+    %p.before-sentence__label 直前の文章
+    - if @before_sentence
+      %p.before-sentence__sentence #{@before_sentence.sentence}
+  = form_for @sentence, :url => {:action => :create} do |f|
+    .form-group
+      = f.label :sentence, "続く文章を２０字以内で入力してください"
+      = f.text_area :sentence, class:"form-controll", cols:"20", maxlength:"20"
+      - if flash[:alert]
+        %p #{flash[:alert]}
+    = f.submit class: "btn btn-primary btn-sm", value:"保存して次の人に渡す"

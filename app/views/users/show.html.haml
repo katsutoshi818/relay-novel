@@ -1,0 +1,6 @@
+- if @titles.length != 0
+  - @titles.each do |title|
+    = link_to "#{title.name}", title_path(title)
+    %p #{title.sentences.first.sentence}...
+- else
+  %p 小説が投稿されていません

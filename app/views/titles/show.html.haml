@@ -1,0 +1,9 @@
+.title-show-main
+  .genre-title
+    %p.genre-title__genre 
+      ジャンル: #{@title.genre.name}
+    %p.genre-title__title 
+      タイトル: #{@title.name}
+  - @sentences.each do |sentence|
+    %p.sentence-table #{sentence.sentence}
+  = link_to "ホーム画面に戻る", root_path
