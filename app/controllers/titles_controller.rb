@@ -9,7 +9,7 @@ class TitlesController < ApplicationController
     if @title.save
       redirect_to title_sentences_path(@title)
     else
-      redirect_to root_path, notice: '!ジャンルとタイトルを入力してください'
+      redirect_to root_path, alert: '! ジャンルとタイトルを入力してください'
     end
   end
 

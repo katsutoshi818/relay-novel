@@ -15,7 +15,7 @@ class SentencesController < ApplicationController
     if @sentence.save
       redirect_to new_title_sentence_path(@title)
     else
-      redirect_to new_title_sentence_path(@title), alert: '!文章を入力してください'
+      redirect_to new_title_sentence_path(@title), alert: '! 文章を入力してください'
     end
   end
 
